@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net8.0-windows</TargetFramework>
+		<TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UseWPF>true</UseWPF>
@@ -13,10 +13,10 @@
 		<Version>1.9.6.2</Version>
 		<Company>FoxliCorp.</Company>
 		<Description>Fox's Arma Server Tool Extended Rewrite</Description>
-		<Copyright>Copyright © 2019</Copyright>
-		<PackageProjectUrl>https://github.com/Foxlider/FASTER</PackageProjectUrl>
+		<Copyright>Copyright © 2025</Copyright>
+		<PackageProjectUrl>https://github.com/Drift91/FASTER</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/Foxlider/FASTER</RepositoryUrl>
+		<RepositoryUrl>https://github.com/Drift91/FASTER</RepositoryUrl>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 
 		<PublishReadyToRun>true</PublishReadyToRun>
