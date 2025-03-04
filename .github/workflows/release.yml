@@ -6,7 +6,7 @@ on:
   workflow_run:
     workflows: [Code Analysis]
     types: [completed]
-    branches: [master]
+    branches: [master, dev]
   
   #Makes a Release on tag
   push:

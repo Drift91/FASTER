@@ -1,13 +1,13 @@
 name: "Code Analysis"
 
 on:
-  push: # The master branch must be analyzed on a new commit
-    branches: [ master ]
+  push: # The master and dev branches must be analyzed on a new commit
+    branches: [ master, dev ]
     tags-ignore:
       - '*'
   pull_request:
-    # Any PR on master must be analyzed
-    branches: [ master ]
+    # Any PR on master or dev must be analyzed
+    branches: [ master, dev ]
   workflow_dispatch: # CodeQL can be triggered manually
 
 jobs:
@@ -77,10 +77,10 @@ jobs:
 
 
     steps:
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 21
           distribution: 'zulu' # Alternative distribution options are available.
           
       - uses: actions/checkout@v4
