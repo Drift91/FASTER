@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Controls.Primitives;
 using System.Xml.Serialization;
+using static FASTER.Models.ServerCfg;
 
 namespace FASTER.Models
 {
@@ -25,7 +26,7 @@ namespace FASTER.Models
             var currentProfiles                      = Properties.Settings.Default.Profiles;
             var p = new ServerProfile(profileName);
             p.ServerCfg.ServerCfgContent             = p.ServerCfg.ProcessFile();
-            p.ServerCfg.ServerCfgContent             = p.AdvancedOptions.ProcessFile();
+            p.AdvancedOptions.AdvancedOptionsContent = p.AdvancedOptions.ProcessFile();
             p.BasicCfg.BasicContent                  = p.BasicCfg.ProcessFile();
             p.ArmaProfile.ArmaProfileContent         = p.ArmaProfile.ProcessFile();
             currentProfiles.Add(p);
@@ -73,7 +74,7 @@ namespace FASTER.Models
         private bool _profileModsFilterIsRegex = false;
         private bool _profileModsFilterIsInvalid = false;
         private ServerCfg _serverCfg;
-        private ServerCfg _advancedOptions;
+        private AdvancedOptions _advancedOptions;
         private Arma3Profile _armaProfile;
         private BasicCfg _basicCfg;
 
@@ -393,7 +394,7 @@ namespace FASTER.Models
             }
         }
 		
-        public ServerCfg AdvancedOptions
+        public AdvancedOptions AdvancedOptions
         {
             get => _advancedOptions;
             set

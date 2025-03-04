@@ -784,7 +784,7 @@ namespace FASTER.Models
         private bool   ignoreMissionLoadErrors = false;      // Do not ingore errors
         private int    queueSizeLogG           = 0;          // If a specific players message queue is larger than <Value> and '#monitor' is running, dump his messages to a logfile for analysis
 
-            public bool LogObjectNotFound
+        public bool LogObjectNotFound
         {
             get => logObjectNotFound;
             set
@@ -794,7 +794,7 @@ namespace FASTER.Models
             }
         }
 
-            public bool SkipDescriptionParsing
+        public bool SkipDescriptionParsing
         {
             get => skipDescriptionParsing;
             set
@@ -804,7 +804,7 @@ namespace FASTER.Models
             }
         }
 
-            public bool IgnoreMissionLoadErrors
+        public bool IgnoreMissionLoadErrors
         {
             get => ignoreMissionLoadErrors;
             set
@@ -814,7 +814,7 @@ namespace FASTER.Models
             }
         }
 
-            public int QueueSizeLogG
+        public int QueueSizeLogG
         {
             get => queueSizeLogG;
             set
@@ -828,17 +828,17 @@ namespace FASTER.Models
 
         public string AdvancedOptionsContent
         {
-            get => AdvancedOptionsContent;
+            get => advancedOptionsContent;
             set
             {
-                AdvancedOptionsContent = value;
+                advancedOptionsContent = value;
                 RaisePropertyChanged("AdvancedOptionsContent");
             }
         }
 
         public AdvancedOptions()
         {
-            if(string.IsNullOrWhiteSpace(AdvancedOptionsContent))
+            if(string.IsNullOrWhiteSpace(advancedOptionsContent))
             { AdvancedOptionsContent = ProcessFile(); }
         }
 
@@ -926,11 +926,14 @@ namespace FASTER.Models
                           + $"persistent = {persistent};\t\t\t\t// If 1, missions still run on even after the last player disconnected.\r\n"
                           + $"timeStampFormat = \"{timeStampFormat}\";\t\t// Set the timestamp format used on each report line in server-side RPT file. Possible values are \"none\" (default),\"short\",\"full\".\r\n"
                           + $"BattlEye = {battlEye};\t\t\t\t// Server to use BattlEye system\r\n"
-                          + $"queueSizeLogG = {QueueSizeLogG};\t\t\t// If a specific players message queue is larger than Value number and #monitor is running, dump his messages to a logfile for analysis \r\n"
-                          + $"LogObjectNotFound = {LogObjectNotFound};\t\t// When false to skip logging 'Server: Object not found messages'.\r\n"
-                          + $"SkipDescriptionParsing = {SkipDescriptionParsing};\t\t// When true to skip parsing of description.ext/mission.sqm. Will show pbo filename instead of configured missionName. OverviewText and such won't work, but loading the mission list is a lot faster when there are many missions \r\n"
-                          + $"ignoreMissionLoadErrors = {IgnoreMissionLoadErrors};\t\t// When set to true, the mission will load no matter the amount of loading errors. If set to false, the server will abort mission's loading and return to mission selection.\r\n"
                           + $"forcedDifficulty = {forcedDifficulty};\t\t\t// Forced difficulty (Recruit, Regular, Veteran, Custom)\r\n"
+                          + $"class AdvancedOptions\r\n"
+                          + $"{{\r\n"
+                          + $"\tqueueSizeLogG = {QueueSizeLogG};\t\t\t// If a specific players message queue is larger than Value number and #monitor is running, dump his messages to a logfile for analysis \r\n"
+                          + $"\tLogObjectNotFound = {LogObjectNotFound};\t\t// When false to skip logging 'Server: Object not found messages'.\r\n"
+                          + $"\tSkipDescriptionParsing = {SkipDescriptionParsing};\t\t// When true to skip parsing of description.ext/mission.sqm. Will show pbo filename instead of configured missionName. OverviewText and such won't work, but loading the mission list is a lot faster when there are many missions \r\n"
+                          + $"\tignoreMissionLoadErrors = {IgnoreMissionLoadErrors};\t\t// When set to true, the mission will load no matter the amount of loading errors. If set to false, the server will abort mission's loading and return to mission selection.\r\n"
+                          + "};\r\n"
                           + "\r\n"
                           + "// TIMEOUTS\r\n"
                           + $"disconnectTimeout = {disconnectTimeout};\t\t\t// Time to wait before disconnecting a user which temporarly lost connection. Range is 5 to 90 seconds.\r\n"
